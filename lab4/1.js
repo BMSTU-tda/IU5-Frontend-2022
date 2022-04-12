@@ -6,7 +6,23 @@
  * ['мир', 'Рим', 'сирота', 'Ариост', 'мри', 'пва', 'лор', 'авп']; -> [["мир", "Рим", "мри"], ["сирота", "Ариост"], ["пва", "авп"]]
  */
 function getAnagramms(arr) {
-    //code here
+    const result = [];
+    const key = [];
+    arr.map((current, index) => 
+    {
+        let checker = current.toLowerCase().split('').sort().join('');
+        if (key.indexOf(checker) === -1) {
+            key.push(checker);
+            result.push([]);
+        }
+    }  );
+    arr.map((current, index) => 
+    {
+        let id = key.indexOf(current.toLowerCase().split('').sort().join(''));
+        if (id != -1) {
+            result[id].push(current); 
+        }
+    }  );
+    return result;
 }
-
 module.exports = getAnagramms;
