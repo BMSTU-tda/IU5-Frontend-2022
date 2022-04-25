@@ -9,6 +9,21 @@
 
 function rle(str) {
     //code here
+    let s = '';
+    let result = '';
+    let k = 0;
+    for (let i = 0; i < str.length; i++){
+        s = str[i];
+        k = 1;
+        while (str[i] === str[i+1] && i < str.length){
+            i++;
+            k++;
+        } 
+        result += str[i];
+        if (k > 1)
+            result += k;
+    }
+    return result;
 }
 
 module.exports = rle;
